@@ -8,8 +8,8 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "css:build": "postcss src/styles/main.css -o src/index.build.css",
-    "css:watch": "postcss src/styles/main.css -o src/index.build.css -w",
+    "css:build": "postcss src/styles/main.css -o src/build.index.css",
+    "css:watch": "postcss src/styles/main.css -o src/build.index.css -w",
     "js:build": "react-scripts build",
     "js:start": "react-scripts start",
     "build": "npm run css:build && npm run js:build",
