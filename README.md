@@ -1,4 +1,10 @@
+# Playground - react-spring
+
+This is a playground for testing react-spring, without repercussions 😍
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+---
 
 ## Available Scripts
 
