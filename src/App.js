@@ -1,19 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { useSpring, useChain, useTransition, animated } from 'react-spring';
+import React, { useRef } from 'react';
+import { useSpring, useChain, animated } from 'react-spring';
 
-const timedSetSentence = (sentence, duration, set) => {
-  return setTimeout(
-    () =>
-      set(
-        sentence
-          .split(' ')
-          .join('§ §')
-          .split('§')
-          .map((word, i) => ({ word, key: i }))
-      ),
-    duration
-  );
-};
+import AnimatedText from './components/AnimatedText';
 
 function App() {
   const backgroundColorChange = useSpring({
@@ -39,38 +27,6 @@ function App() {
 
   useChain([fromTopRef, fromLeftRef], [0, 0.2]);
 
-  const [bodyText, setBodyText] = useState([]);
-
-  const textTransitions = useTransition(bodyText, item => item.key, {
-    from: { transform: 'translate3d(0,40px,0)', opacity: 0 },
-    enter: { transform: 'translate3d(0,0px,0)', opacity: 1 },
-    leave: { transform: 'translate3d(0,40px,0)', opacity: 0 },
-  });
-
-  const timeoutRefs = useRef([]);
-
-  useEffect(() => {
-    timeoutRefs.current = [];
-    timeoutRefs.current.push(
-      timedSetSentence('This is a sentence,', 1000, setBodyText)
-    );
-    timeoutRefs.current.push(
-      timedSetSentence(
-        'This is a sentence, a few more thingys here.',
-        2500,
-        setBodyText
-      )
-    );
-    timeoutRefs.current.push(
-      timedSetSentence(
-        'This is a sentence, a few more thingys here. And there',
-        4000,
-        setBodyText
-      )
-    );
-    return () => timeoutRefs.current.map(clearTimeout);
-  }, []);
-
   return (
     <animated.main
       className="min-h-screen relative"
@@ -85,15 +41,7 @@ function App() {
       </animated.div>
       <div className="px-16">
         <p>
-          {textTransitions.map(({ item, props, key }) => (
-            <animated.span
-              key={key}
-              className="inline-block ml-1 text-white text-xl"
-              style={props}
-            >
-              {item.word}
-            </animated.span>
-          ))}
+          <AnimatedText />
         </p>
       </div>
     </animated.main>
