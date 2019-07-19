@@ -14,7 +14,8 @@
     "js:build": "react-scripts build",
     "js:start": "react-scripts start",
     "build": "npm run css:build && npm run js:build",
-    "start": "npm run css:watch & npm run js:start"
+    "start": "npm run css:watch & npm run js:start",
+    "now-build": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
