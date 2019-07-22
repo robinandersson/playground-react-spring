@@ -6,6 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## [DEMO](https://playground-react-spring-ii3kucgg7.now.sh/)
 
+Currently deployed serverless on [Zeit/Now](https://zeit.co/now).
+
 ---
 
 ## Available Scripts
